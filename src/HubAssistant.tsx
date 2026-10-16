@@ -66,7 +66,7 @@ export function HubAssistant() {
         <header className="hub-assistant-header">
           <div className="hub-assistant-identity">
             <span className="hub-assistant-mini" aria-hidden="true"><img className="hub-assistant-mascot-mini" src="/mini-genie.svg" alt="" /></span>
-            <div><strong>Genie — Hub Assistant</strong><small>Data &amp; AI intelligence companion</small></div>
+            <div><strong>Hub Assistant</strong><small>Data &amp; AI intelligence companion</small></div>
           </div>
           <button type="button" className="hub-assistant-close" aria-label="Close Hub Assistant" onClick={() => setOpen(false)}>×</button>
         </header>

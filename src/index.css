@@ -197,24 +197,15 @@ html.dark .hub-assistant-panel .hub-assistant-error,
 [data-mode="dark"] .hub-assistant-panel .hub-assistant-error { color: #ff9b9b; }
 
 
-/* Accessible dark mode for numeric values and table figures. Some brand-number styles
-   deliberately use navy in light mode; that same navy is too dark on a dark surface. */
-.dark [data-application="data-ai-hub"] .text-brand-navy.tabular-nums,
-html.dark [data-application="data-ai-hub"] .text-brand-navy.tabular-nums,
-[data-theme="dark"] [data-application="data-ai-hub"] .text-brand-navy.tabular-nums,
-[data-mode="dark"] [data-application="data-ai-hub"] .text-brand-navy.tabular-nums {
+/* Dark-mode numeric contrast is tied only to the class that ThemeToggle actually controls.
+   This prevents light-mode numbers from inheriting pale colors via unrelated data-theme attributes. */
+html.dark [data-application="data-ai-hub"] .text-brand-navy.tabular-nums {
   color: #e7f0ff;
 }
-.dark [data-application="data-ai-hub"] .tabular-nums:not(.text-success):not(.text-destructive):not(.text-muted-foreground),
-html.dark [data-application="data-ai-hub"] .tabular-nums:not(.text-success):not(.text-destructive):not(.text-muted-foreground),
-[data-theme="dark"] [data-application="data-ai-hub"] .tabular-nums:not(.text-success):not(.text-destructive):not(.text-muted-foreground),
-[data-mode="dark"] [data-application="data-ai-hub"] .tabular-nums:not(.text-success):not(.text-destructive):not(.text-muted-foreground) {
+html.dark [data-application="data-ai-hub"] .tabular-nums:not(.text-success):not(.text-destructive):not(.text-muted-foreground) {
   color: #edf3fc;
 }
-.dark [data-application="data-ai-hub"] .tabular-nums.text-muted-foreground,
-html.dark [data-application="data-ai-hub"] .tabular-nums.text-muted-foreground,
-[data-theme="dark"] [data-application="data-ai-hub"] .tabular-nums.text-muted-foreground,
-[data-mode="dark"] [data-application="data-ai-hub"] .tabular-nums.text-muted-foreground {
+html.dark [data-application="data-ai-hub"] .tabular-nums.text-muted-foreground {
   color: #b8c6d9;
 }
 
