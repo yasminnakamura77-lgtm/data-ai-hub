@@ -85,14 +85,14 @@ export function App() {
 
   return (
     <div data-application="data-ai-hub" className="min-h-svh bg-background text-foreground">
-      {/* Brand chrome — draws from Pilgrim's navy, per platform convention. */}
+      {/* Brand chrome: the product identity stays on its own row, regardless of zoom. */}
       <header className="sticky top-0 z-20 border-b border-white/10 bg-brand-navy text-white">
-        <div className="mx-auto flex h-14 max-w-6xl items-center gap-6 px-6">
+        <div className="mx-auto flex min-h-11 max-w-6xl items-center gap-4 px-4 sm:px-6">
           <button
             onClick={() => navigate({ name: 'landing' })}
-            className="flex items-center gap-2 font-semibold tracking-tight"
+            className="flex shrink-0 items-center gap-2 whitespace-nowrap font-semibold tracking-tight"
           >
-            <span className="grid size-7 place-items-center rounded-md bg-white/15">
+            <span className="grid size-8 place-items-center rounded-md bg-white/15">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <circle cx="7.5" cy="12" r="2.1" fill="#fff" />
                 <circle cx="16.5" cy="7.5" r="1.8" fill="#fff" opacity="0.85" />
@@ -108,7 +108,17 @@ export function App() {
             </span>
             Pilgrim&apos;s <span className="font-normal text-white/70">Data &amp; AI Hub</span>
           </button>
-          <nav className="ml-4 hidden items-center gap-1 md:flex">
+          <div className="ml-auto flex shrink-0 items-center gap-3">
+            <span className="hidden text-xs text-white/70 sm:inline">local · admin (dev auth)</span>
+            <ThemeToggle />
+          </div>
+        </div>
+
+        <div className="border-t border-white/10">
+          <nav
+            aria-label="Main navigation"
+            className="mx-auto flex h-11 max-w-6xl items-center justify-start gap-1 overflow-x-auto px-4 sm:px-6 md:justify-center"
+          >
             {NAV.map((item) => {
               const isActive =
                 view.name === item.go.name &&
@@ -117,8 +127,8 @@ export function App() {
                 <button
                   key={item.label}
                   onClick={() => navigate(item.go)}
-                  className={`rounded-md px-3 py-1.5 text-sm transition-colors ${
-                    isActive ? 'bg-white/15 text-white' : 'text-white/70 hover:bg-white/10 hover:text-white'
+                  className={`shrink-0 rounded-md px-3 py-1.5 text-sm transition-colors ${
+                    isActive ? 'bg-white/15 text-white' : 'text-white/75 hover:bg-white/10 hover:text-white'
                   }`}
                 >
                   {item.label}
@@ -126,10 +136,6 @@ export function App() {
               );
             })}
           </nav>
-          <div className="ml-auto flex items-center gap-3">
-            <span className="hidden text-xs text-white/60 sm:inline">local · admin (dev auth)</span>
-            <ThemeToggle />
-          </div>
         </div>
       </header>
 

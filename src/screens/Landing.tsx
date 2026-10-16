@@ -58,7 +58,7 @@ function SectionHead({
 function Stat({ value, label }: { value: React.ReactNode; label: string }) {
   return (
     <div className="flex items-baseline gap-1.5">
-      <span className="text-xl font-bold tabular-nums text-brand-navy">{value}</span>
+      <span className="text-xl font-bold tabular-nums text-brand-navy dark:text-slate-100">{value}</span>
       <span className="text-xs text-muted-foreground">{label}</span>
     </div>
   );

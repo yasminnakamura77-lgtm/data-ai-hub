@@ -13,6 +13,7 @@ import {
   Tooltip,
 } from 'chart.js';
 import type * as React from 'react';
+import { useEffect, useState } from 'react';
 import { Bar, Doughnut, Line } from 'react-chartjs-2';
 
 import { cn } from '@/governance/lib/utils';
@@ -65,7 +66,54 @@ export interface Series {
 
 const nums = (data: Series['data']) => data.map((value) => (value === null ? null : Number(value)));
 
-const GRID = 'rgba(128,128,128,0.15)';
+/** Canvas text does not inherit CSS color tokens, so observe the document theme and
+ * pass explicit contrast-safe colors to Chart.js. */
+function useChartTheme() {
+  const readDark = () => {
+    if (typeof document === 'undefined') return false;
+    const elements = [document.documentElement, document.body].filter(Boolean);
+    return elements.some((element) =>
+      element.classList.contains('dark') || element.dataset.theme === 'dark' || element.dataset.mode === 'dark'
+    );
+  };
+  const [dark, setDark] = useState(readDark);
+
+  useEffect(() => {
+    const sync = () => setDark(readDark());
+    const observer = new MutationObserver(sync);
+    const attributes = { attributes: true, attributeFilter: ['class', 'data-theme', 'data-mode'] } as const;
+    observer.observe(document.documentElement, attributes);
+    if (document.body) observer.observe(document.body, attributes);
+    sync();
+    return () => observer.disconnect();
+  }, []);
+
+  return {
+    dark,
+    text: dark ? '#d6e0ef' : '#64748b',
+    grid: dark ? 'rgba(180,196,218,0.18)' : 'rgba(100,116,139,0.16)',
+    border: dark ? '#34445a' : '#d7dee8',
+    tooltipBackground: dark ? '#111c2d' : '#ffffff',
+    tooltipBorder: dark ? '#34445a' : '#dbe3ed',
+    tooltipText: dark ? '#edf3fc' : '#243247',
+  };
+}
+
+function chartChrome(theme: ReturnType<typeof useChartTheme>) {
+  return {
+    legend: {
+      labels: { color: theme.text },
+    },
+    tooltip: {
+      backgroundColor: theme.tooltipBackground,
+      titleColor: theme.tooltipText,
+      bodyColor: theme.tooltipText,
+      borderColor: theme.tooltipBorder,
+      borderWidth: 1,
+      padding: 10,
+    },
+  };
+}
 
 function translucent(color: string) {
   return color.startsWith('oklch(') ? color.replace(')', ' / 18%)') : color;
@@ -95,6 +143,7 @@ export function LineChart({
   options?: ChartOptions<'line'>;
   className?: string;
 }) {
+  const theme = useChartTheme();
   const data: ChartData<'line'> = {
     labels,
     datasets: series.map((s, i) => {
@@ -118,8 +167,11 @@ export function LineChart({
         options={{
           responsive: true,
           maintainAspectRatio: false,
-          plugins: { legend: { display: series.length > 1, position: 'bottom' } },
-          scales: { x: { grid: { display: false } }, y: { grid: { color: GRID } } },
+          plugins: { ...chartChrome(theme), legend: { ...chartChrome(theme).legend, display: series.length > 1, position: 'bottom' } },
+          scales: {
+            x: { ticks: { color: theme.text }, grid: { display: false }, border: { color: theme.border } },
+            y: { ticks: { color: theme.text }, grid: { color: theme.grid }, border: { color: theme.border } },
+          },
           ...options,
         }}
       />
@@ -145,6 +197,7 @@ export function BarChart({
   options?: ChartOptions<'bar'>;
   className?: string;
 }) {
+  const theme = useChartTheme();
   const data: ChartData<'bar'> = {
     labels,
     datasets: series.map((s, i) => ({
@@ -165,10 +218,10 @@ export function BarChart({
           responsive: true,
           maintainAspectRatio: false,
           indexAxis: horizontal ? 'y' : 'x',
-          plugins: { legend: { display: series.length > 1, position: 'bottom' } },
+          plugins: { ...chartChrome(theme), legend: { ...chartChrome(theme).legend, display: series.length > 1, position: 'bottom' } },
           scales: {
-            x: { stacked, grid: { display: horizontal, color: GRID }, beginAtZero: horizontal },
-            y: { stacked, grid: { display: !horizontal, color: GRID }, beginAtZero: !horizontal },
+            x: { stacked, ticks: { color: theme.text }, grid: { display: horizontal, color: theme.grid }, border: { color: theme.border }, beginAtZero: horizontal },
+            y: { stacked, ticks: { color: theme.text }, grid: { display: !horizontal, color: theme.grid }, border: { color: theme.border }, beginAtZero: !horizontal },
           },
           ...options,
         }}
@@ -190,6 +243,7 @@ export function DoughnutChart({
   options?: ChartOptions<'doughnut'>;
   className?: string;
 }) {
+  const theme = useChartTheme();
   const data: ChartData<'doughnut'> = {
     labels: slices.map((s) => s.label),
     datasets: [
@@ -210,7 +264,7 @@ export function DoughnutChart({
           responsive: true,
           maintainAspectRatio: false,
           cutout: '62%',
-          plugins: { legend: { position: 'bottom' } },
+          plugins: { ...chartChrome(theme), legend: { ...chartChrome(theme).legend, position: 'bottom' } },
           ...options,
         }}
       />

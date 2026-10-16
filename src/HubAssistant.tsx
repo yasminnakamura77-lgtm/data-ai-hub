@@ -60,13 +60,13 @@ export function HubAssistant() {
   return (
     <>
       <button type="button" className="hub-assistant-orb" aria-label="Open Hub Assistant" aria-expanded={open} onClick={() => setOpen((current) => !current)}>
-        <span className="hub-assistant-robot" aria-hidden="true"><i /><i /><b /></span>
+        <img className="hub-assistant-mascot" src="/mini-genie.svg" alt="" />
       </button>
       <aside className={`hub-assistant-panel ${open ? 'is-open' : ''}`} aria-hidden={!open} aria-label="Hub Assistant">
         <header className="hub-assistant-header">
           <div className="hub-assistant-identity">
-            <span className="hub-assistant-mini"><span className="hub-assistant-robot mini" aria-hidden="true"><i /><i /><b /></span></span>
-            <div><strong>Hub Assistant</strong><small>Data &amp; AI intelligence companion</small></div>
+            <span className="hub-assistant-mini" aria-hidden="true"><img className="hub-assistant-mascot-mini" src="/mini-genie.svg" alt="" /></span>
+            <div><strong>Genie — Hub Assistant</strong><small>Data &amp; AI intelligence companion</small></div>
           </div>
           <button type="button" className="hub-assistant-close" aria-label="Close Hub Assistant" onClick={() => setOpen(false)}>×</button>
         </header>

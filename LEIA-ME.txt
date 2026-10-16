@@ -1,14 +1,18 @@
-CORREÇÃO DO CAMINHO DO TEMA CSS
+PATCH — HEADER RESPONSIVO E CONTRASTE DO TEMA ESCURO
 
-1. Extraia este ZIP dentro da pasta do projeto que contém package.json e src.
-   Pelo erro enviado, essa é a pasta interna: merged-2.0\merged-2.0.
-2. Aceite substituir src\index.css.
-3. Execute Open-Merged.bat novamente.
+Como aplicar:
+1. Extraia o conteúdo deste ZIP na pasta raiz do projeto (a mesma pasta que contém package.json).
+2. Aceite substituir os arquivos existentes.
+3. Reinicie o servidor de desenvolvimento para carregar as mudanças.
 
-A correção supõe que a biblioteca compartilhada esteja em:
-AI & Data Hub\pilgrims-core-components
+Arquivos incluídos:
+- src/App.tsx — separa permanentemente identidade/tema e abas em duas faixas do header.
+- src/index.css — mantém o visual do mascote/chatbot e corrige contraste de números no tema escuro.
+- src/governance/ui/charts.tsx — melhora a legibilidade das escalas, rótulos e tooltips dos gráficos no tema escuro.
+- src/screens/Landing.tsx — adapta o contraste do número de indicadores no modo escuro.
+- src/HubAssistant.tsx — mantém a versão atual do mascote e do popup.
+- public/mini-genie.svg — SVG usado pelo botão e cabeçalho do chatbot.
 
-Confirme que existe o arquivo:
-packages\ui\src\styles\theme.css
+O header agora possui duas linhas estruturais: a primeira mantém a marca à esquerda e status/tema à direita; a segunda contém as abas. Em telas estreitas, as abas podem rolar horizontalmente sem mudar de linha.
 
-Se a pasta pilgrims-core-components estiver em outro local, o caminho precisará refletir a localização real.
+A imagem de referência do header não foi adicionada ao projeto.
