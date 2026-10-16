@@ -1,0 +1,14 @@
+CORREÇÃO DO CAMINHO DO TEMA CSS
+
+1. Extraia este ZIP dentro da pasta do projeto que contém package.json e src.
+   Pelo erro enviado, essa é a pasta interna: merged-2.0\merged-2.0.
+2. Aceite substituir src\index.css.
+3. Execute Open-Merged.bat novamente.
+
+A correção supõe que a biblioteca compartilhada esteja em:
+AI & Data Hub\pilgrims-core-components
+
+Confirme que existe o arquivo:
+packages\ui\src\styles\theme.css
+
+Se a pasta pilgrims-core-components estiver em outro local, o caminho precisará refletir a localização real.

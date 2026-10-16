@@ -1,0 +1,38 @@
+{
+  "name": "pilgrims-data-ai-hub",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Data & AI Hub \u2014 business-facing metrics / applications / glossary / lineage. Prototype on @pilgrims/ui (PLATFORM_DEV sibling checkout).",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.1.0",
+    "@tanstack/react-query": "5.101.3",
+    "@xyflow/react": "^12.3.5",
+    "lucide-react": "1.25.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "@radix-ui/react-select": "^2.3.3",
+    "@radix-ui/react-slot": "^1.3.0",
+    "chart.js": "^4.4.4",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "react-chartjs-2": "^5.2.0",
+    "tailwind-merge": "^2.6.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.0",
+    "vite": "^5.4.0",
+    "@types/node": "^22.20.1"
+  }
+}

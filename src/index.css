@@ -1,0 +1,54 @@
+/* Pilgrim's design system — the theme self-imports tailwindcss + tw-animate-css
+   and defines all brand tokens (primary blue, brand navy/red, Inter, radius).
+   Imported by relative path to the sibling checkout so it resolves without any
+   CSS-alias dependency under PLATFORM_DEV. */
+@import "../../../../pilgrims-core-components/packages/ui/src/styles/theme.css";
+
+/* Tailwind v4 must scan the @pilgrims/ui source (served from the sibling repo)
+   plus this app so it emits the class names both use. */
+@source "../../../../pilgrims-core-components/packages/ui/src/**/*.{ts,tsx}";
+@source "./**/*.{ts,tsx}";
+
+/* Per-app accent for the Data & AI Hub (falls back to --primary otherwise). */
+[data-application="data-ai-hub"] {
+  --application-accent: var(--brand-navy);
+}
+
+/* Floating prototype, adapted from idea1 so it remains available on every Hub screen. */
+.hub-assistant-orb { position: fixed; right: 22px; bottom: 20px; z-index: 40; display: grid; width: 58px; height: 58px; place-items: center; border: 0; border-radius: 999px; background: #2f80ed; box-shadow: 0 9px 26px rgb(47 128 237 / 28%); cursor: pointer; transition: transform .18s ease, box-shadow .18s ease; }
+.hub-assistant-orb:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgb(47 128 237 / 34%); }.hub-assistant-alert { position: absolute; top: -2px; right: -2px; display: grid; width: 21px; height: 21px; place-items: center; border: 3px solid #fff; border-radius: 50%; background: #ff4d67; color: #fff; font-size: 9px; font-weight: 700; }
+.hub-assistant-robot { position: relative; display: flex; width: 31px; height: 24px; align-items: center; justify-content: center; gap: 5px; border-radius: 10px; background: #fff; }.hub-assistant-robot::before { position: absolute; top: -4px; left: 50%; width: 4px; height: 5px; border-radius: 3px; background: #fff; content: ''; transform: translateX(-50%); }.hub-assistant-robot i { display: block; width: 4px; height: 4px; border-radius: 50%; background: #2f80ed; }.hub-assistant-robot b { position: absolute; bottom: 4px; left: 50%; width: 8px; height: 4px; border: 0; border-bottom: 2px solid #2f80ed; border-radius: 0 0 10px 10px; transform: translateX(-50%); }
+.hub-assistant-panel { position: fixed; right: 22px; bottom: 90px; z-index: 35; display: flex; width: 390px; height: min(610px, calc(100vh - 118px)); flex-direction: column; overflow: hidden; border: 1px solid #e3e8ef; border-radius: 17px; background: rgb(255 255 255 / 98%); box-shadow: 0 24px 60px rgb(28 43 60 / 18%); color: #475569; opacity: 0; pointer-events: none; transform: translateY(14px) scale(.98); transition: opacity .2s ease, transform .2s ease; }.hub-assistant-panel.is-open { opacity: 1; pointer-events: auto; transform: translateY(0) scale(1); }.hub-assistant-header { display: flex; min-height: 70px; align-items: center; justify-content: space-between; padding: 0 16px; border-bottom: 1px solid #e7ebf0; }.hub-assistant-identity { display: flex; align-items: center; gap: 10px; }.hub-assistant-mini { display: grid; width: 32px; height: 32px; place-items: center; border-radius: 50%; background: #2f80ed; }.hub-assistant-robot.mini { transform: scale(.55); }.hub-assistant-identity strong { display: block; color: #334155; font-size: 13px; }.hub-assistant-identity small { color: #94a3b8; font-size: 9px; }.hub-assistant-close { width: 28px; height: 28px; border: 0; border-radius: 7px; background: transparent; color: #95a2b2; cursor: pointer; font-size: 19px; }.hub-assistant-close:hover { background: #f4f7fa; }
+.hub-assistant-body { flex: 1; overflow-y: auto; padding: 14px; }.hub-assistant-welcome { margin-bottom: 12px; padding: 11px 12px; border: 1px solid #e4eefc; border-radius: 11px; background: #f7faff; }.hub-assistant-welcome strong { display: block; margin-bottom: 4px; color: #344258; font-size: 12px; }.hub-assistant-welcome p, .hub-assistant-card p, .hub-assistant-failure p { margin: 0; color: #8291a1; font-size: 9px; line-height: 1.5; }
+.hub-assistant-card { margin-bottom: 13px; padding: 13px; border: 1px solid #dce9fa; border-radius: 13px; background: linear-gradient(180deg, #f8fbff, #fff); }.hub-assistant-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }.hub-assistant-card-head > span { display: flex; gap: 9px; }.assistant-icon { display: grid; width: 28px; height: 28px; place-items: center; border-radius: 8px; font-size: 12px; font-style: normal; }.assistant-icon.blue { background: #edf5ff; color: #2f80ed; }.assistant-icon.amber { background: #fff4e8; color: #ed8b31; }.hub-assistant-card-head small { display: block; margin-bottom: 2px; color: #91a0b0; font-size: 8px; font-weight: 700; letter-spacing: .09em; }.hub-assistant-card-head h3 { margin: 0; color: #35445a; font-size: 11px; }.assistant-status, .assistant-count { white-space: nowrap; font-size: 7px; }.assistant-status { padding: 4px 7px; border-radius: 999px; background: #eaf3ff; color: #377fd5; letter-spacing: .05em; }.assistant-count { color: #8593a3; font-size: 8px; }.hub-assistant-card h4 { margin: 12px 0 5px; color: #3b4b61; font-size: 11px; }.hub-assistant-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }.hub-assistant-meta span { padding: 8px; border-radius: 8px; background: #f6f8fb; color: #9aa6b5; font-size: 8px; }.hub-assistant-meta strong { display: block; margin-top: 3px; color: #4b5b70; font-size: 9px; }.hub-assistant-primary { width: 100%; height: 31px; margin-top: 10px; border: 0; border-radius: 7px; background: #2f80ed; color: #fff; cursor: pointer; font-size: 9px; font-weight: 600; }.hub-assistant-library-copy { margin: 8px 0 9px; color: #8a98a8; font-size: 9px; line-height: 1.45; }
+.hub-assistant-failure { margin-bottom: 8px; padding: 11px; border: 1px solid #e5eaf0; border-radius: 11px; background: #fff; }.hub-assistant-failure-top, .hub-assistant-failure footer { display: flex; align-items: center; justify-content: space-between; gap: 5px; }.hub-assistant-failure-top strong { display: flex; align-items: center; gap: 6px; color: #48566a; font-size: 10px; }.hub-assistant-severity { display: inline-block; width: 7px; height: 7px; border-radius: 50%; }.hub-assistant-severity.medium { background: #f0a43d; }.hub-assistant-severity.high { background: #ef5969; }.hub-assistant-failure-top span { padding: 3px 6px; border-radius: 999px; background: #f2f6fb; color: #718197; font-size: 7px; }.hub-assistant-failure > b { display: block; margin: 9px 0 3px; color: #536174; font-size: 9px; }.hub-assistant-failure footer { margin-top: 9px; padding-top: 8px; border-top: 1px solid #edf0f4; color: #a0abb9; font-size: 8px; }.hub-assistant-failure footer button { border: 0; background: transparent; color: #5284c5; cursor: pointer; font-size: 8px; font-weight: 600; }
+.hub-assistant-messages { display: flex; flex-direction: column; gap: 8px; }.hub-assistant-message { max-width: 85%; padding: 8px 10px; border-radius: 10px; font-size: 9px; line-height: 1.4; }.hub-assistant-message.assistant { align-self: flex-start; border: 1px solid #ebeff4; background: #f6f8fb; color: #64748b; }.hub-assistant-message.user { align-self: flex-end; background: #2f80ed; color: #fff; }.hub-assistant-input { display: flex; min-height: 57px; gap: 7px; padding: 10px; border-top: 1px solid #e5e9ee; }.hub-assistant-input input { min-width: 0; height: 34px; flex: 1; padding: 0 10px; border: 1px solid #e1e7ee; border-radius: 8px; color: #475569; font-size: 9px; outline: 0; }.hub-assistant-input input:focus { border-color: #a9c6ef; }.hub-assistant-input button { width: 34px; border: 0; border-radius: 8px; background: #2f80ed; color: #fff; cursor: pointer; font-size: 13px; }
+@media (max-width: 700px) { .hub-assistant-panel { right: 12px; bottom: 82px; width: min(390px, calc(100vw - 24px)); }.hub-assistant-orb { right: 14px; bottom: 14px; } }
+
+/* Narrow, non-destructive header adjustments: keep original identity and navigation. */
+[data-application="data-ai-hub"] > header > div { min-height: 3.5rem; height: auto; flex-wrap: wrap; row-gap: .4rem; padding-top: .45rem; padding-bottom: .45rem; }
+[data-application="data-ai-hub"] > header nav { min-width: 0; flex: 1 1 auto; flex-wrap: wrap; }
+[data-application="data-ai-hub"] > header nav button { white-space: nowrap; }
+[data-application="data-ai-hub"] > header > div > button { flex-shrink: 0; white-space: nowrap; }
+[data-application="data-ai-hub"] > header > div > div:last-child { flex-shrink: 0; }
+@media (max-width: 1050px) {
+  [data-application="data-ai-hub"] > header > div { gap: .45rem 1rem; }
+  [data-application="data-ai-hub"] > header nav { order: 3; flex-basis: 100%; margin-left: 0; justify-content: center; }
+  [data-application="data-ai-hub"] > header > div > div:last-child { margin-left: auto; }
+}
+@media (max-width: 767px) {
+  [data-application="data-ai-hub"] > header nav { display: flex; overflow-x: auto; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 3px; }
+  [data-application="data-ai-hub"] > header > div { padding-left: 1rem; padding-right: 1rem; }
+}
+.hub-assistant-refresh { margin-top: 8px; padding: 5px 9px; border: 1px solid #bdd5f6; border-radius: 6px; color: #2769b5; background: white; font-size: 10px; cursor: pointer; }
+.hub-assistant-refresh:disabled { opacity: .55; cursor: wait; }
+.hub-assistant-error { margin: 10px 0; color: #a72b2b; font-size: 11px; }
+.hub-assistant-disclaimer { margin: 9px 0; color: #61758b; font-size: 10px; line-height: 1.5; }
+.hub-assistant-insight + .hub-assistant-insight { margin-top: 12px; border-top: 1px solid #e5ecf5; }
+.hub-assistant-empty { padding: 12px 0; color: #6b7f94; font-size: 11px; }
+.hub-assistant-message { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 11px; }
+.hub-assistant-card p, .hub-assistant-failure p { font-size: 11px; }
+.hub-assistant-panel { max-height: calc(100dvh - 110px); }
+.hub-assistant-card-head { flex-wrap: wrap; }
+.hub-assistant-failure footer { align-items: flex-start; }
+.hub-assistant-failure footer span { overflow-wrap: anywhere; }

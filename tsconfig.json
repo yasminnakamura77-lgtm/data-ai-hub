@@ -1,0 +1,28 @@
+{
+  "extends": "../../../pilgrims-core-components/packages/config/tsconfig/app.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "types": [],
+    "paths": {
+      "@pilgrims/ui": [
+        "../../../pilgrims-core-components/packages/ui/src"
+      ],
+      "@pilgrims/ui/*": [
+        "../../../pilgrims-core-components/packages/ui/src/*"
+      ],
+      "@pilgrims/utils": [
+        "../../../pilgrims-core-components/packages/utils/src"
+      ],
+      "@pilgrims/auth": [
+        "../../../pilgrims-core-components/packages/auth/src"
+      ],
+      "@/*": [
+        "src/*"
+      ]
+    }
+  },
+  "include": [
+    "src",
+    "vite.config.ts"
+  ]
+}

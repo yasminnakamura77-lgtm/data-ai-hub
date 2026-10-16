@@ -1,0 +1,514 @@
+{
+  "project": "Data & AI Hub — merged",
+  "original_archives": [
+    {
+      "name": "AI governance.zip",
+      "sha256": "3b5b04d86a45c2fde16f14bd7035dd15fdcbaaa784b83caba0d900c455d74e9e",
+      "entries": 182
+    },
+    {
+      "name": "idea1-3.0.zip",
+      "sha256": "a1ec8257dde9aab03f0f0be00cf864ad30af0cd3349f5c72b3fea574bdc97f8f",
+      "entries": 9760
+    }
+  ],
+  "files": [
+    {
+      "origin": "chatbot",
+      "path": "package.json",
+      "original_sha256": "0d7309d8dd56745d96af5bf6dbc037e8f5a8084e076dfa9c343391492fb80635",
+      "merged_sha256": "5b62c9346e5802e1d6e84f3c2b5e89f28031fcf824ca43cf48703c377009c363",
+      "transformation": "integration"
+    },
+    {
+      "origin": "chatbot",
+      "path": "Abrir Pilgrims.bat",
+      "original_sha256": "56c3fc100cf82cca6be5985af68f2a008f9f41c26f1c0f37e2e39a048e8e5d30",
+      "merged_sha256": "56c3fc100cf82cca6be5985af68f2a008f9f41c26f1c0f37e2e39a048e8e5d30",
+      "transformation": "none"
+    },
+    {
+      "origin": "chatbot",
+      "path": "pnpm-lock.yaml",
+      "original_sha256": "4e50e23ecfcef5596b54b4dbd22ffa2441d846d0fda05d594c8e2a5a664a7248",
+      "merged_sha256": "4e50e23ecfcef5596b54b4dbd22ffa2441d846d0fda05d594c8e2a5a664a7248",
+      "transformation": "none"
+    },
+    {
+      "origin": "chatbot",
+      "path": "pnpm-workspace.yaml",
+      "original_sha256": "ac02d96368617c760f093cfe61fdec64b6244007ab3553e0d6621f706f54a353",
+      "merged_sha256": "ac02d96368617c760f093cfe61fdec64b6244007ab3553e0d6621f706f54a353",
+      "transformation": "none"
+    },
+    {
+      "origin": "chatbot",
+      "path": "vite.config.ts",
+      "original_sha256": "e469b715a1135d82f40a6fb2f174529bf8756276f5f5f1ac1ed0a85c2b842480",
+      "merged_sha256": "b4c72cce86a138614d60fa6014d18212ff06fe1c57bbc9995bcbe554aa0950c4",
+      "transformation": "integration"
+    },
+    {
+      "origin": "chatbot",
+      "path": "tsconfig.json",
+      "original_sha256": "b747d81c06c73c06b3e01163c3fea8141acb13a52f8f4c2040bf02942d292c1b",
+      "merged_sha256": "bd1d1359ee98192ea69da69930d717ab8ba81e1eed310a1ba242d5326fc6c7d4",
+      "transformation": "integration"
+    },
+    {
+      "origin": "chatbot",
+      "path": "index.html",
+      "original_sha256": "87f7d6ae8b59d708beef6c5436686a9e60c365727e8ca547b1f7717e712ae87a",
+      "merged_sha256": "87f7d6ae8b59d708beef6c5436686a9e60c365727e8ca547b1f7717e712ae87a",
+      "transformation": "none"
+    },
+    {
+      "origin": "chatbot",
+      "path": ".claude/settings.local.json",
+      "original_sha256": "8cf12703781a979c2b36a4625e057bd0467ffe0033d7b1f18a33471dc41b7529",
+      "merged_sha256": "8cf12703781a979c2b36a4625e057bd0467ffe0033d7b1f18a33471dc41b7529",
+      "transformation": "none"
+    },
+    {
+      "origin": "chatbot",
+      "path": "dev-api/serve.py",
+      "original_sha256": "f0008071e2b7ee4155e35887502481ae0e86008f4f44333fb497f401cb6eb6ef",
+      "merged_sha256": "f0008071e2b7ee4155e35887502481ae0e86008f4f44333fb497f401cb6eb6ef",
+      "transformation": "none"
+    },
+    {
+      "origin": "chatbot",
+      "path": "src/HubAssistant.tsx",
+      "original_sha256": "0634fb63cab895c01700d0b633d53f1683f09593cd82f3d367bbf9fbb84cffe1",
+      "merged_sha256": "0634fb63cab895c01700d0b633d53f1683f09593cd82f3d367bbf9fbb84cffe1",
+      "transformation": "none"
+    },
+    {
+      "origin": "chatbot",
+      "path": "src/index.css",
+      "original_sha256": "52a6812c221b80a45a65d0b48c2ff65a18d47b76cadccd0dcb89db0c6bb8afc8",
+      "merged_sha256": "52a6812c221b80a45a65d0b48c2ff65a18d47b76cadccd0dcb89db0c6bb8afc8",
+      "transformation": "none"
+    },
+    {
+      "origin": "chatbot",
+      "path": "src/App.tsx",
+      "original_sha256": "efb52549f1df26cdf9d232ac69e062965bb36353ecbed9c260a1ce74f9cc8f18",
+      "merged_sha256": "9d457f15b42828cbc95db889021187a00fcb8493c5aa7827b4cbc9a305269bf6",
+      "transformation": "integration"
+    },
+    {
+      "origin": "chatbot",
+      "path": "src/mock.ts",
+      "original_sha256": "2bc8c1929dfb13d757e868f8d2ee590f417c1196cf8426da5b3978b245f3181f",
+      "merged_sha256": "2bc8c1929dfb13d757e868f8d2ee590f417c1196cf8426da5b3978b245f3181f",
+      "transformation": "none"
+    },
+    {
+      "origin": "chatbot",
+      "path": "src/ui.tsx",
+      "original_sha256": "0483e12cf9bafddcdf778f3b1effd072c844610c0d21de1c7ca2048f1d1f1c31",
+      "merged_sha256": "0483e12cf9bafddcdf778f3b1effd072c844610c0d21de1c7ca2048f1d1f1c31",
+      "transformation": "none"
+    },
+    {
+      "origin": "chatbot",
+      "path": "src/api.ts",
+      "original_sha256": "f85cadddccb3c03994b40fe36f6006acf2a1f3e1241c9247c71d9ee7e852b686",
+      "merged_sha256": "f85cadddccb3c03994b40fe36f6006acf2a1f3e1241c9247c71d9ee7e852b686",
+      "transformation": "none"
+    },
+    {
+      "origin": "chatbot",
+      "path": "src/main.tsx",
+      "original_sha256": "84ff50780203832101db4a858c3ab371fb9af8edd3df6dcdbd24e61e4947b17a",
+      "merged_sha256": "84ff50780203832101db4a858c3ab371fb9af8edd3df6dcdbd24e61e4947b17a",
+      "transformation": "none"
+    },
+    {
+      "origin": "chatbot",
+      "path": ".vscode/settings.json",
+      "original_sha256": "d0a49a7492fe5bde03eb5a7cff61747d91c96a9471987ed92cb200b37e1e94e7",
+      "merged_sha256": "d0a49a7492fe5bde03eb5a7cff61747d91c96a9471987ed92cb200b37e1e94e7",
+      "transformation": "none"
+    },
+    {
+      "origin": "chatbot",
+      "path": "src/screens/Lineage.tsx",
+      "original_sha256": "57b60f9fcbdac3471751ae0393b9f003620912813d4d814c7bcafdb85ab9d650",
+      "merged_sha256": "57b60f9fcbdac3471751ae0393b9f003620912813d4d814c7bcafdb85ab9d650",
+      "transformation": "none"
+    },
+    {
+      "origin": "chatbot",
+      "path": "src/screens/RequestSource.tsx",
+      "original_sha256": "5c39df2a7a601365aa80abf18fead0f83ea76ef81dd308c28ed947ea606aa021",
+      "merged_sha256": "5c39df2a7a601365aa80abf18fead0f83ea76ef81dd308c28ed947ea606aa021",
+      "transformation": "none"
+    },
+    {
+      "origin": "chatbot",
+      "path": "src/screens/AssetDetail.tsx",
+      "original_sha256": "e8d89acf2ed46be164263ddcc0a5684dc02740089ba708102f869093385d6c5d",
+      "merged_sha256": "e8d89acf2ed46be164263ddcc0a5684dc02740089ba708102f869093385d6c5d",
+      "transformation": "none"
+    },
+    {
+      "origin": "chatbot",
+      "path": "src/screens/Landing.tsx",
+      "original_sha256": "63ce6df7d6499b9fd919234f47f0f6679ec6f4e6922d1ec1f9d306f144acfde5",
+      "merged_sha256": "63ce6df7d6499b9fd919234f47f0f6679ec6f4e6922d1ec1f9d306f144acfde5",
+      "transformation": "none"
+    },
+    {
+      "origin": "chatbot",
+      "path": "src/screens/ApplicationDetail.tsx",
+      "original_sha256": "4f1ac3c7e1a2802bb99448146d7be4d3b2c209403546724318d4e4bba9740ec7",
+      "merged_sha256": "4f1ac3c7e1a2802bb99448146d7be4d3b2c209403546724318d4e4bba9740ec7",
+      "transformation": "none"
+    },
+    {
+      "origin": "chatbot",
+      "path": "src/screens/MetricForm.tsx",
+      "original_sha256": "15b70e167b9ebf71069e5019ecd4dce8494905993c0245f362a7a704b7effcad",
+      "merged_sha256": "15b70e167b9ebf71069e5019ecd4dce8494905993c0245f362a7a704b7effcad",
+      "transformation": "none"
+    },
+    {
+      "origin": "chatbot",
+      "path": "src/screens/MetricDetail.tsx",
+      "original_sha256": "867f7cc0b57305de882c5d9b79789aabd44c0221e99a9220bf71c359182985c8",
+      "merged_sha256": "867f7cc0b57305de882c5d9b79789aabd44c0221e99a9220bf71c359182985c8",
+      "transformation": "none"
+    },
+    {
+      "origin": "chatbot",
+      "path": "src/screens/Browse.tsx",
+      "original_sha256": "e52fd848f3c1433d3e5a256dbbe46b81a035fad027d4546861ed1edd56199a15",
+      "merged_sha256": "e52fd848f3c1433d3e5a256dbbe46b81a035fad027d4546861ed1edd56199a15",
+      "transformation": "none"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/index.css",
+      "original_sha256": "e5eff0b49f5bb747f45e8cd5a43d5aab0b0071e1aba2c1dbc04fffe042b40248",
+      "merged_sha256": "e5eff0b49f5bb747f45e8cd5a43d5aab0b0071e1aba2c1dbc04fffe042b40248",
+      "transformation": "none"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/App.tsx",
+      "original_sha256": "362cd56e564e1da5794942aed74f49934398ddd18b9fe79581294bd1e1857721",
+      "merged_sha256": "a0eed359ba2258840bfee1cc92c026ca76d6d58e24cc91f6b5189f66002e250d",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/main.tsx",
+      "original_sha256": "9cfdaccee33ade16c78bca46cf6a5a25e53ccb9497601a2488d4c289fd46342d",
+      "merged_sha256": "9cfdaccee33ade16c78bca46cf6a5a25e53ccb9497601a2488d4c289fd46342d",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/pages/explore.tsx",
+      "original_sha256": "d7a913af436e49ac3e2b0a59e093296ae103ebd3b704b2ad5b8a097309d7194e",
+      "merged_sha256": "a70d2657f0a25bf97993a4fc740c95727f8624be695dd4a2907ec60f06853087",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/pages/dashboard.tsx",
+      "original_sha256": "065aa08e3aa12bdffbb56f3bf53b1c2fc39415db3cce94feb54b9d3265c95b31",
+      "merged_sha256": "80e9cd26d54e2e5354426442092011e31ecf5fb9f07ed5ad42ac5c292b68f29d",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/ui/modal.tsx",
+      "original_sha256": "201dafeb09c51c10b652c5cfa07499e04d6c1b3197b971e73eb51e4e016f0d1a",
+      "merged_sha256": "7865f79d81bebd855d86930bbb0f2dd6d1b4599116165067cb1bd0076dbe4c54",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/ui/index.ts",
+      "original_sha256": "3c40536c7d0ae9499d860c88577ee1a35afb58dfb6298000fd50c88004bdab1f",
+      "merged_sha256": "3c40536c7d0ae9499d860c88577ee1a35afb58dfb6298000fd50c88004bdab1f",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/ui/data-table.tsx",
+      "original_sha256": "49b2337386c6d7dcc67cd68e317d9d2e433b0b21a77dd5b1dd5b01dcdf4e151f",
+      "merged_sha256": "d75f0c6ecacd4153e8dcf4779c6874e4f0f6bd7161432b2713564bb7dc9ec496",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/ui/typography.tsx",
+      "original_sha256": "d1506f856be3ba521f5b7bbad4b6ba8b14835655b1a4518fd776aafc1f82c671",
+      "merged_sha256": "c65439684de9d1868a2415de15cf82a721f1a27bfa5358d78922ec68ae687719",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/ui/layout.tsx",
+      "original_sha256": "d0d967a4895eab61fe260b7638d46546d413230eb1959b294c23815e4484d17c",
+      "merged_sha256": "1f645317bce28173d0c486b4888a68ea0c89ffc5fc6dafcf2cbed5de2a64c080",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/ui/feedback.tsx",
+      "original_sha256": "af0c6b9766fb63708174284d4d73bbc62cc1defde0828fd8609fab034bb3b05d",
+      "merged_sha256": "ba5ef78b2fea01e1e1e619c645d1c622b446c95f8c5eaa99589223873243e619",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/ui/button.tsx",
+      "original_sha256": "4e5d4162c11ce2954dcb4f4d0d46da9f7268ddec24a35dcdb5a5c8809bf99751",
+      "merged_sha256": "c9f1d7cc1b4d5486740a00552e1ee00d05afcec233e5433a503a3c712a2a226b",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/ui/card.tsx",
+      "original_sha256": "f4de27d8a6a133eeb7d70116ee23ef49064b7299fd5cb3f75545fd30aec9c5b7",
+      "merged_sha256": "bdfbdcdfee92727c34af6793dc879667008a68859f7dc41b88683800e7df9160",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/ui/charts.tsx",
+      "original_sha256": "1f99f85ef8e0df46b7c873666e34eab4a7dd44f2366fbbfbca3aa5d51cf6eb52",
+      "merged_sha256": "5758d9a2cb4136bfb928091b2d870fe279f2bb6e2a28a63c1f6a8980a5a3c6db",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/ui/forms.tsx",
+      "original_sha256": "67f94eb0041318ea9b5c090a0a9b0e32c410c1cdf4801112f3e3ea7624cd12f0",
+      "merged_sha256": "844ae2d9b2b78ecd22aec8cfcbff66bf835eb000116768629f75456bab634c38",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/lib/use-sql.ts",
+      "original_sha256": "c4994b79a0250e6d702f3a96d1cc27ebf0dbe17f54cc90ceabb8bff1ea5fa710",
+      "merged_sha256": "c4994b79a0250e6d702f3a96d1cc27ebf0dbe17f54cc90ceabb8bff1ea5fa710",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/lib/format.ts",
+      "original_sha256": "0aed5fa6cc024939495b000817f9373462cede5eece6ec8fef22486d6321c498",
+      "merged_sha256": "0aed5fa6cc024939495b000817f9373462cede5eece6ec8fef22486d6321c498",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/lib/use-json.ts",
+      "original_sha256": "063a5df3e1ee594d7bf8f1b5d8fe3ad7ecdc235322759ca5e20453d9fe83219c",
+      "merged_sha256": "063a5df3e1ee594d7bf8f1b5d8fe3ad7ecdc235322759ca5e20453d9fe83219c",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/lib/utils.ts",
+      "original_sha256": "021aba4da6b63944411449c9d6d93c124d33b50da6b2ccb72d96dc491e36cacf",
+      "merged_sha256": "021aba4da6b63944411449c9d6d93c124d33b50da6b2ccb72d96dc491e36cacf",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/pages/catalogue/index.tsx",
+      "original_sha256": "17ad5e36ca91305f0df427ba6106ab9120c6c452d6abc534e5cc4738ca2cc04e",
+      "merged_sha256": "17ad5e36ca91305f0df427ba6106ab9120c6c452d6abc534e5cc4738ca2cc04e",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/pages/catalogue/report-issue-modal.tsx",
+      "original_sha256": "7f09247a36459e1430d373bedcb0d3e51d45ea6b041df0fad20604bd9d9715b8",
+      "merged_sha256": "8d59fda5315dd1562d4736fd9198a6b8a78cbea3b11ab000d4562698b72f5b5f",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/pages/catalogue/ai-applications-modal.tsx",
+      "original_sha256": "82fb72f756da801cff848c05904b24ca520e49d865e0f2b42268ae7afc69031b",
+      "merged_sha256": "90012c5919bd5c4b03e83880846d2f00d5d2628d34e81a12fb5c70cbc86d58e8",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/pages/catalogue/source-detail.tsx",
+      "original_sha256": "948463787781e0c49e84d0fe7910a8f0e58255d4f7dd820064bfebc63ccb25bb",
+      "merged_sha256": "780b6af616a1c768ba8ab160495fb908906c76676b083fca5f2c353e35775283",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/pages/catalogue/freshness-card.tsx",
+      "original_sha256": "17190c3c5813bb4ebea4f01f3ce153a4b5066d814f2bf88ceb0f136a9957915b",
+      "merged_sha256": "a4b3286f53d5f8b985e499e5c6c4c18323824a684ec9c40cb233717f8a5fec88",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/pages/catalogue/types.ts",
+      "original_sha256": "a8ce614609b0d6072b56c9e772fc47e66544ee91e3f57089e332c50b3be6256f",
+      "merged_sha256": "a8ce614609b0d6072b56c9e772fc47e66544ee91e3f57089e332c50b3be6256f",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/pages/catalogue/badges.tsx",
+      "original_sha256": "982a650b1e48204c409d8b5324add5431c75af2a3a24dcb2f0ad72a107cfd03a",
+      "merged_sha256": "d906b595070439c360818a84cf2e4f5817631811d5c7e44eb2dc2fed56d0ac4d",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/pages/catalogue/lineage-modal.tsx",
+      "original_sha256": "fc6b11828eddc74ffdddd612005671355588a2a8446234ab8e6d2803ff74bda0",
+      "merged_sha256": "cd634f7db48f32b36cebabad3403cc8b0781abaa474d18c101e7f30323ad1283",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/pages/catalogue/ask-ai-panel.tsx",
+      "original_sha256": "0dff72f214a74a13ea442deeab50dff86167bd2189dd689e9e165e02fe4f2d2a",
+      "merged_sha256": "2976b3919e699d8fdbcaae787acad493724bf812c562102100e9f9132dcb81f3",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/pages/catalogue/readiness-stages.tsx",
+      "original_sha256": "dddc3df5be48c051a56eb1bb13ea8d979f98d304d040d791486da80936f15a22",
+      "merged_sha256": "b253defb04128d432f5cfb64aabde31d61b8446abd1258c732cd6efb44d462be",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/pages/catalogue/contact-card.tsx",
+      "original_sha256": "7f811aec10a88924e4e7e90ff928073fd84507b93f56b2f5055482deae29953e",
+      "merged_sha256": "dd796c8eff6a5e9d554810959b7b4034d1e126c2b91e67dcb006d7db28650eed",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/pages/catalogue/deployment-status-card.tsx",
+      "original_sha256": "614b7789e8f8b666d512e54b5803d453793b5b2f0b2b5b773c53909d611841df",
+      "merged_sha256": "c6a5e1ed4c3039711d3dc34863065ce8d8c79b7466a7871a7aafa4e551f46e53",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/pages/catalogue/data-impact-card.tsx",
+      "original_sha256": "36f3fa48c360b1ce87b2aaccdbb974cb1e1156c25d8e10550ff52027e8d0a3e6",
+      "merged_sha256": "36364917357c25d7c5fbcb54c56ea8340f2c8d549f755960340655c9bafc739e",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/pages/catalogue/similar-data-card.tsx",
+      "original_sha256": "ef07aa793e53e7db310c058e7c9c71144644f45da1a38f5cdd980840e6471c7f",
+      "merged_sha256": "384ce4531551785ea214eefab87239a8a82d9be3461412c96dfa1aae68c023ed",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/pages/catalogue/source-list.tsx",
+      "original_sha256": "7b1756c24c84eaf173b80017ef78214b2d844d84ab095dfc69308ad82b5cfcee",
+      "merged_sha256": "220fa481d5c19b1e4b40a39a25e8d772063996ae619a3c355cead6a363a283a6",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "src/governance/pages/catalogue/glossary-modal.tsx",
+      "original_sha256": "b2b43fbdc6b311fe3f124bad37239b50083865f65fb617244e1a434dd42e731c",
+      "merged_sha256": "06dc5c9d096390fbf0afa4a9a9375eb220a87d6f8f6f4a97e00956a3f052dc86",
+      "transformation": "internal import namespace"
+    },
+    {
+      "origin": "governance",
+      "path": "governance-api/guard.py",
+      "original_sha256": "77e4331cbf2e37ab974b0b80ffe3798041b09dba83f7178d8ef3c2caa3190a36",
+      "merged_sha256": "77e4331cbf2e37ab974b0b80ffe3798041b09dba83f7178d8ef3c2caa3190a36",
+      "transformation": "none"
+    },
+    {
+      "origin": "governance",
+      "path": "governance-api/uv.lock",
+      "original_sha256": "7443982ae15290a56bbcc854139d2c136128644d984f89af988c1565a54ba5d7",
+      "merged_sha256": "7443982ae15290a56bbcc854139d2c136128644d984f89af988c1565a54ba5d7",
+      "transformation": "none"
+    },
+    {
+      "origin": "governance",
+      "path": "governance-api/catalogue.py",
+      "original_sha256": "cd9f0b2e02d915e43ab63a30bf36301ac6778104ed332b180e03d02842633adb",
+      "merged_sha256": "cd9f0b2e02d915e43ab63a30bf36301ac6778104ed332b180e03d02842633adb",
+      "transformation": "none"
+    },
+    {
+      "origin": "governance",
+      "path": "governance-api/warehouse.py",
+      "original_sha256": "b6fd447f77b4bc58bfc58e0adef38c21427385f369411139e947da6758e75254",
+      "merged_sha256": "b6fd447f77b4bc58bfc58e0adef38c21427385f369411139e947da6758e75254",
+      "transformation": "none"
+    },
+    {
+      "origin": "governance",
+      "path": "governance-api/main.py",
+      "original_sha256": "5660d8f2f732e738f0051525f88ce8c8a9f146ffb121692dd3f63748db2b1093",
+      "merged_sha256": "5660d8f2f732e738f0051525f88ce8c8a9f146ffb121692dd3f63748db2b1093",
+      "transformation": "none"
+    },
+    {
+      "origin": "governance",
+      "path": "governance-api/pyproject.toml",
+      "original_sha256": "0d2fb88be49440aa2ef7bc568356a8784d67df9a2bd9417a9fa0da26c1e6f85c",
+      "merged_sha256": "0d2fb88be49440aa2ef7bc568356a8784d67df9a2bd9417a9fa0da26c1e6f85c",
+      "transformation": "none"
+    },
+    {
+      "origin": "governance",
+      "path": "governance-api/ai_assistant.py",
+      "original_sha256": "4cc24973d1f7082b3822b6564a7da9fbb609c5d23ca0c84f86d4772e5d6099b4",
+      "merged_sha256": "4cc24973d1f7082b3822b6564a7da9fbb609c5d23ca0c84f86d4772e5d6099b4",
+      "transformation": "none"
+    },
+    {
+      "origin": "governance",
+      "path": "governance-api/.env.example",
+      "original_sha256": "633e61d1d0c8afaa56851d96be1eaa532f134ea431afba507f8137cc3bc7d497",
+      "merged_sha256": "633e61d1d0c8afaa56851d96be1eaa532f134ea431afba507f8137cc3bc7d497",
+      "transformation": "none"
+    }
+  ],
+  "checks": {
+    "archives_byte_identical": true,
+    "chatbot_original_files_preserved_except_integration": true,
+    "governance_components_preserved_except_import_namespace": true,
+    "governance_backend_byte_identical": true,
+    "governance_records": 5,
+    "governance_record_fields_complete": true,
+    "issue_reporting_data_function": true,
+    "python_syntax_files": [
+      "dev-api/serve.py",
+      "governance-api/guard.py",
+      "governance-api/catalogue.py",
+      "governance-api/warehouse.py",
+      "governance-api/main.py",
+      "governance-api/ai_assistant.py"
+    ],
+    "typescript_syntax_files": 49,
+    "local_imports_resolved": 138,
+    "same_home_governance_and_assistant": true,
+    "full_build_and_visual_run": "not run: external pilgrims-core-components and portfolio.db were not provided"
+  }
+}
