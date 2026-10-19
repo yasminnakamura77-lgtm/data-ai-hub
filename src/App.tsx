@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { ThemeToggle } from '@pilgrims/ui';
 
@@ -77,10 +77,55 @@ export function App() {
   const [view, setView] = useState<View>(viewFromUrl);
   const [area, setArea] = useState<Area | 'All'>('All');
 
+  // Smooth light <-> dark switch: when <html> gains/loses `dark`, colors cross-fade
+  // for ~0.5s instead of snapping. Self-contained (injects its own CSS).
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const style = document.createElement('style');
+    style.textContent =
+      'html.theme-fade, html.theme-fade *, html.theme-fade *::before, html.theme-fade *::after {' +
+      'transition: background-color .45s ease, color .45s ease, border-color .45s ease, fill .45s ease, stroke .45s ease, box-shadow .45s ease !important;}';
+    document.head.appendChild(style);
+    const root = document.documentElement;
+    let wasDark = root.classList.contains('dark');
+    let timer = 0;
+    const observer = new MutationObserver(() => {
+      const isDark = root.classList.contains('dark');
+      if (isDark === wasDark) return;
+      wasDark = isDark;
+      root.classList.add('theme-fade');
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => root.classList.remove('theme-fade'), 600);
+    });
+    observer.observe(root, { attributes: true, attributeFilter: ['class'] });
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(timer);
+      style.remove();
+    };
+  }, []);
+
+  const [visible, setVisible] = useState(true);
+  const timers = useRef<number[]>([]);
+  useEffect(() => () => timers.current.forEach(window.clearTimeout), []);
+
+  // Dissolve out -> swap screen while invisible -> dissolve in. Inline styles, so it
+  // works regardless of CSS. Skipped if the user prefers reduced motion.
   const navigate: Navigate = (v) => {
-    setView(v);
-    window.history.replaceState(null, '', viewToUrl(v));
-    window.scrollTo({ top: 0 });
+    timers.current.forEach(window.clearTimeout);
+    const swap = () => {
+      setView(v);
+      window.history.replaceState(null, '', viewToUrl(v));
+      window.scrollTo({ top: 0 });
+    };
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return swap();
+    setVisible(false);
+    timers.current = [
+      window.setTimeout(() => {
+        swap();
+        window.setTimeout(() => setVisible(true), 30);
+      }, 220),
+    ];
   };
 
   return (
@@ -139,7 +184,14 @@ export function App() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-6xl px-6 py-8">
+      <main
+        className="mx-auto max-w-6xl px-6 py-8"
+        style={{
+          opacity: visible ? 1 : 0,
+          transform: visible ? 'none' : 'translateY(8px)',
+          transition: 'opacity 260ms ease, transform 260ms ease',
+        }}
+      >
         {view.name === 'landing' && <Landing area={area} setArea={setArea} navigate={navigate} />}
         {view.name === 'governance' && <GovernanceSection />}
         {view.name === 'dashboard' && <Dashboard />}

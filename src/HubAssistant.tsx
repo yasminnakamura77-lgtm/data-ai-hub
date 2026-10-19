@@ -31,6 +31,12 @@ export function HubAssistant() {
     }
   }
 
+  useEffect(() => {
+    const openGenie = () => setOpen(true);
+    window.addEventListener('hub-assistant:open', openGenie);
+    return () => window.removeEventListener('hub-assistant:open', openGenie);
+  }, []);
+
   useEffect(() => { if (open && !insights && !loading && !insightError) void refreshInsights(); }, [open]);
 
   const sendMessage = async (event: FormEvent<HTMLFormElement>) => {

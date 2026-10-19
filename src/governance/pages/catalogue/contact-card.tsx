@@ -1,4 +1,4 @@
-import { Bot, LifeBuoy } from 'lucide-react';
+import { LifeBuoy } from 'lucide-react';
 
 import { Button, Card } from '@/governance/ui';
 
@@ -7,7 +7,15 @@ import { Button, Card } from '@/governance/ui';
  * card. Now that ownership moved to the bottom, this is the stand-in —
  * deliberately louder than a plain button row.
  */
-export function ContactCard({ onAskAi, onReportIssue }: { onAskAi: () => void; onReportIssue: () => void }) {
+/** Same event HubAssistant (the Genie, bottom-right) listens for. */
+export const OPEN_GENIE_EVENT = 'hub-assistant:open';
+
+export function ContactCard({
+  onReportIssue,
+}: {
+  onAskAi?: () => void; // kept for compatibility; "Ask AI" now opens the Genie
+  onReportIssue: () => void;
+}) {
   return (
     <Card.Root className="mb-4 overflow-hidden border-brand-red/25 bg-gradient-to-br from-brand-50 to-surface dark:from-brand-700/15">
       <Card.Content className="flex flex-wrap items-center justify-between gap-4 py-4">
@@ -23,8 +31,8 @@ export function ContactCard({ onAskAi, onReportIssue }: { onAskAi: () => void; o
           </div>
         </div>
         <div className="flex gap-2">
-          <Button variant="secondary" onClick={onAskAi}>
-            <Bot className="size-4" />
+          <Button variant="secondary" onClick={() => window.dispatchEvent(new CustomEvent(OPEN_GENIE_EVENT))}>
+            <img src="/mini-genie.svg" alt="" aria-hidden="true" className="h-[18px] w-[21px] object-contain" />
             Ask AI
           </Button>
           <Button onClick={onReportIssue}>

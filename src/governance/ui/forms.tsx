@@ -4,6 +4,15 @@ import type * as React from 'react';
 
 import { cn } from '@/governance/lib/utils';
 
+const SELECT_CSS = `
+.hub-select-content{z-index:200;background:#fff;color:#1e293b;border:1px solid #cbd5e1;border-radius:10px;box-shadow:0 14px 40px rgba(15,23,42,.22);overflow:hidden}
+.hub-select-item{color:#1e293b;border-radius:6px}
+.hub-select-item[data-highlighted]{background:#eaf1fb;color:#0f1f3d}
+html.dark .hub-select-content,.dark .hub-select-content{background:#17233a;color:#e6edf8;border-color:#344560;box-shadow:0 14px 40px rgba(0,0,0,.55)}
+.dark .hub-select-item{color:#e6edf8}
+.dark .hub-select-item[data-highlighted]{background:#26385a;color:#fff}
+`;
+
 export function Input({ className, ...props }: React.ComponentProps<'input'>) {
   return (
     <input
@@ -60,14 +69,15 @@ export function Select({
         <SelectPrimitive.Content
           position="popper"
           sideOffset={4}
-          className="z-50 max-h-72 min-w-[var(--radix-select-trigger-width)] overflow-hidden rounded-md border border-border bg-popover text-popover-foreground shadow-md"
+          className="hub-select-content max-h-72 min-w-[var(--radix-select-trigger-width)]"
         >
+          <style>{SELECT_CSS}</style>
           <SelectPrimitive.Viewport className="p-1">
             {items.map((item) => (
               <SelectPrimitive.Item
                 key={item.value}
                 value={item.value}
-                className="relative flex cursor-pointer items-center rounded-sm py-1.5 pr-8 pl-2 text-sm outline-none select-none data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground"
+                className="hub-select-item relative flex cursor-pointer items-center py-1.5 pr-8 pl-2 text-sm outline-none select-none"
               >
                 <SelectPrimitive.ItemText>{item.label}</SelectPrimitive.ItemText>
                 <SelectPrimitive.ItemIndicator className="absolute right-2">

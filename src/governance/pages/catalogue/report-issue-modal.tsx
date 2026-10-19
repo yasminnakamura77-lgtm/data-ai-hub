@@ -94,7 +94,7 @@ export function ReportIssueModal({
             <Label>What do you need?</Label>
             <Select value={kind} onValueChange={setKind} options={REQUEST_KINDS} />
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <div className="flex flex-col gap-1.5">
               <Label>Your name</Label>
               <Input value={name} onChange={(event) => setName(event.target.value)} placeholder="Optional" />
@@ -116,11 +116,11 @@ export function ReportIssueModal({
               onChange={(event) => setMessage(event.target.value)}
               rows={4}
               placeholder="What do you need from the data team?"
-              className="w-full resize-y rounded-md border border-input bg-transparent p-2 text-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+              className="w-full min-h-24 resize-y rounded-md border border-input bg-transparent p-2 text-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
             />
           </div>
           {error && <ErrorMessage message={error} />}
-          <div className="flex justify-end gap-2 pt-1">
+          <div className="flex flex-wrap justify-end gap-2 pt-1">
             <Button variant="outline" onClick={onClose}>
               Cancel
             </Button>

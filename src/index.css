@@ -235,3 +235,62 @@ html.dark [data-application="data-ai-hub"] .tabular-nums.text-muted-foreground {
     height: 1.75rem;
   }
 }
+
+/* ==========================================================================
+   Governance tokens inside the Hub.
+   The Governance components use bg-surface, bg-brand-600, etc. Those tokens
+   only existed in governance/index.css, which the Hub never loads — so modals
+   and buttons rendered with NO background (transparent). Defined here, with
+   light + dark values, so every Governance popup is opaque in both themes.
+   ========================================================================== */
+:root {
+  --surface: oklch(1 0 0);
+  --surface-muted: oklch(0.96 0.006 260);
+  --danger: oklch(0.55 0.22 25);
+}
+.dark,
+html.dark {
+  --surface: oklch(0.21 0.025 260);
+  --surface-muted: oklch(0.27 0.025 260);
+  --danger: oklch(0.65 0.2 25);
+}
+@theme inline {
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-danger: var(--danger);
+  --color-brand-50: oklch(0.97 0.012 260);
+  --color-brand-100: oklch(0.93 0.03 260);
+  --color-brand-500: oklch(0.55 0.18 260);
+  --color-brand-600: oklch(0.48 0.19 260);
+  --color-brand-700: oklch(0.4 0.18 260);
+  --color-brand-red: var(--brand-red, oklch(0.54 0.21 27));
+}
+/* Brand-600 is a dark blue: keep it readable (white text) and visible in dark mode. */
+html.dark .bg-brand-600 { background-color: oklch(0.55 0.17 260); }
+html.dark .bg-brand-600:hover { background-color: oklch(0.6 0.17 260); }
+
+/* ==========================================================================
+   Motion: soft dissolves instead of hard cuts. No flashing, no black frames.
+   ========================================================================== */
+:where(button, a, [role="button"], input, select, textarea) {
+  transition-property: color, background-color, border-color, opacity, box-shadow, transform;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+}
+:where(button:not(:disabled), [role="button"]):active { transform: scale(0.98); }
+
+/* Screen change: current view dissolves out, the next one dissolves in. */
+.hub-view { opacity: 1; transform: none; transition: opacity 0.16s ease, transform 0.16s ease; }
+.hub-view.is-leaving { opacity: 0; transform: translateY(4px); pointer-events: none; }
+.hub-view.is-entering { animation: hub-view-in 0.32s ease both; }
+@keyframes hub-view-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hub-fade-in { animation: hub-view-in 0.32s ease backwards; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hub-view, .hub-view.is-leaving { transition: none; transform: none; }
+  .hub-view.is-entering, .hub-fade-in { animation: none; }
+  :where(button:not(:disabled), [role="button"]):active { transform: none; }
+}

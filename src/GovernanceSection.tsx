@@ -34,7 +34,11 @@ export function GovernanceSection() {
   return (
     <section aria-label="Data quality, trust and governance">
       <SourceList onSelect={select} />
-      {selectedId && <SourceDetail key={selectedId} sourceId={selectedId} onBack={() => select(null)} />}
+      {selectedId && (
+        <div key={selectedId} className="hub-fade-in">
+          <SourceDetail sourceId={selectedId} onBack={() => select(null)} />
+        </div>
+      )}
     </section>
   );
 }
