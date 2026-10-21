@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 
 import { ThemeToggle } from '@pilgrims/ui';
 
@@ -12,6 +12,7 @@ import { MetricForm } from './screens/MetricForm';
 import { RequestSource } from './screens/RequestSource';
 import { Browse, type BrowseKind } from './screens/Browse';
 import { HubAssistant } from './HubAssistant';
+import { FavoritesMenu } from './favorites/FavoritesMenu';
 import { GovernanceSection } from './GovernanceSection';
 import { Dashboard } from './governance/pages/dashboard';
 import { Explore } from './governance/pages/explore';
@@ -76,56 +77,20 @@ function viewToUrl(v: View): string {
 export function App() {
   const [view, setView] = useState<View>(viewFromUrl);
   const [area, setArea] = useState<Area | 'All'>('All');
+  const [govKey, setGovKey] = useState(0);
 
-  // Smooth light <-> dark switch: when <html> gains/loses `dark`, colors cross-fade
-  // for ~0.5s instead of snapping. Self-contained (injects its own CSS).
-  useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const style = document.createElement('style');
-    style.textContent =
-      'html.theme-fade, html.theme-fade *, html.theme-fade *::before, html.theme-fade *::after {' +
-      'transition: background-color .45s ease, color .45s ease, border-color .45s ease, fill .45s ease, stroke .45s ease, box-shadow .45s ease !important;}';
-    document.head.appendChild(style);
-    const root = document.documentElement;
-    let wasDark = root.classList.contains('dark');
-    let timer = 0;
-    const observer = new MutationObserver(() => {
-      const isDark = root.classList.contains('dark');
-      if (isDark === wasDark) return;
-      wasDark = isDark;
-      root.classList.add('theme-fade');
-      window.clearTimeout(timer);
-      timer = window.setTimeout(() => root.classList.remove('theme-fade'), 600);
-    });
-    observer.observe(root, { attributes: true, attributeFilter: ['class'] });
-    return () => {
-      observer.disconnect();
-      window.clearTimeout(timer);
-      style.remove();
-    };
-  }, []);
-
-  const [visible, setVisible] = useState(true);
-  const timers = useRef<number[]>([]);
-  useEffect(() => () => timers.current.forEach(window.clearTimeout), []);
-
-  // Dissolve out -> swap screen while invisible -> dissolve in. Inline styles, so it
-  // works regardless of CSS. Skipped if the user prefers reduced motion.
   const navigate: Navigate = (v) => {
-    timers.current.forEach(window.clearTimeout);
-    const swap = () => {
-      setView(v);
-      window.history.replaceState(null, '', viewToUrl(v));
-      window.scrollTo({ top: 0 });
-    };
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return swap();
-    setVisible(false);
-    timers.current = [
-      window.setTimeout(() => {
-        swap();
-        window.setTimeout(() => setVisible(true), 30);
-      }, 220),
-    ];
+    setView(v);
+    window.history.replaceState(null, '', viewToUrl(v));
+    window.scrollTo({ top: 0 });
+  };
+
+  // Used by Favorites: open Governance with a specific source already selected.
+  const openGovernanceSource = (sourceId: string) => {
+    setGovKey((k) => k + 1); // remount so the section reads ?source= again
+    setView({ name: 'governance' });
+    window.history.replaceState(null, '', `?v=governance&source=${encodeURIComponent(sourceId)}`);
+    window.scrollTo({ top: 0 });
   };
 
   return (
@@ -160,40 +125,38 @@ export function App() {
         </div>
 
         <div className="border-t border-white/10">
-          <nav
-            aria-label="Main navigation"
-            className="mx-auto flex h-11 max-w-6xl items-center justify-start gap-1 overflow-x-auto px-4 sm:px-6 md:justify-center"
-          >
-            {NAV.map((item) => {
-              const isActive =
-                view.name === item.go.name &&
-                (item.go.name !== 'browse' || (item.go as { kind: string }).kind === (view as { kind?: string }).kind);
-              return (
-                <button
-                  key={item.label}
-                  onClick={() => navigate(item.go)}
-                  className={`shrink-0 rounded-md px-3 py-1.5 text-sm transition-colors ${
-                    isActive ? 'bg-white/15 text-white' : 'text-white/75 hover:bg-white/10 hover:text-white'
-                  }`}
-                >
-                  {item.label}
-                </button>
-              );
-            })}
-          </nav>
+          <div className="mx-auto flex h-11 max-w-6xl items-center px-4 sm:px-6">
+            {/* Spacer the same width as the favorites icon keeps the tabs visually centered on wide screens. */}
+            <span aria-hidden="true" className="hidden size-9 shrink-0 md:block" />
+            <nav
+              aria-label="Main navigation"
+              className="flex h-11 min-w-0 flex-1 items-center justify-start gap-1 overflow-x-auto md:justify-center"
+            >
+              {NAV.map((item) => {
+                const isActive =
+                  view.name === item.go.name &&
+                  (item.go.name !== 'browse' || (item.go as { kind: string }).kind === (view as { kind?: string }).kind);
+                return (
+                  <button
+                    key={item.label}
+                    onClick={() => navigate(item.go)}
+                    className={`shrink-0 rounded-md px-3 py-1.5 text-sm transition-colors ${
+                      isActive ? 'bg-white/15 text-white' : 'text-white/75 hover:bg-white/10 hover:text-white'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                );
+              })}
+            </nav>
+            <FavoritesMenu navigate={navigate} openGovernanceSource={openGovernanceSource} />
+          </div>
         </div>
       </header>
 
-      <main
-        className="mx-auto max-w-6xl px-6 py-8"
-        style={{
-          opacity: visible ? 1 : 0,
-          transform: visible ? 'none' : 'translateY(8px)',
-          transition: 'opacity 260ms ease, transform 260ms ease',
-        }}
-      >
+      <main className="mx-auto max-w-6xl px-6 py-8">
         {view.name === 'landing' && <Landing area={area} setArea={setArea} navigate={navigate} />}
-        {view.name === 'governance' && <GovernanceSection />}
+        {view.name === 'governance' && <GovernanceSection key={govKey} />}
         {view.name === 'dashboard' && <Dashboard />}
         {view.name === 'explore' && <Explore />}
         {view.name === 'browse' && <Browse kind={view.kind} navigate={navigate} />}
